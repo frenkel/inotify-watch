@@ -11,7 +11,8 @@ int main(int argc, char *argv[]) {
 	int wd, length, i;
 	char buffer[BUF_LEN];
 
-	wd = inotify_add_watch(fd, "/home/frank/", IN_MODIFY | IN_CREATE | IN_DELETE);
+	printf("Opening \"%s\" for watching\n", argv[1]);
+	wd = inotify_add_watch(fd, argv[1], IN_MODIFY | IN_CREATE | IN_DELETE);
 
 	if(fd < 0) {
 		perror("inotify_init");
