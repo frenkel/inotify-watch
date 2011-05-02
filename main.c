@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
 
 	if(fd < 0) {
 		perror("inotify_init");
+		exit(EXIT_FAILURE);
 	}
 
 
@@ -55,8 +56,6 @@ int main(int argc, char *argv[]) {
 
 	inotify_rm_watch(fd, wd);
 	close(fd);	
-
-	//exit(EXIT_FAILURE);
 
 	exit(EXIT_SUCCESS);
 }
